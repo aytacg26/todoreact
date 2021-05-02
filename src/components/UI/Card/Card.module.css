@@ -1,0 +1,13 @@
+.Card {
+  max-width: 100%;
+  width: 100%;
+  margin: 10px auto;
+  padding: 25px 15px;
+  background-color: var(--greyBack);
+  box-shadow: 1px 1px 3px black;
+  border-radius: 8px;
+}
+
+.Card li {
+  list-style: none;
+}
