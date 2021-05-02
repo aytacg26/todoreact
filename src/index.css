@@ -4,3 +4,11 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+:root {
+  --blue: rgb(0, 81, 255);
+  --yellow: rgb(255, 255, 16);
+  --orange: #ff4500;
+  --green: greenyellow;
+  --red: rgb(236, 21, 21);
+}

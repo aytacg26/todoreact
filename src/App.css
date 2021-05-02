@@ -1,8 +1,8 @@
 .container {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   height: 100vh;
-  padding: 0 30px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
