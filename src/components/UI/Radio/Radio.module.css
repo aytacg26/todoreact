@@ -1,0 +1,134 @@
+.radio {
+  font-size: 2.25rem;
+  color: #303030;
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 0.5em;
+  margin: 5px 10px;
+  transform: scale(0.75);
+  cursor: pointer;
+}
+
+.radioInput {
+  display: flex;
+}
+
+.radioInput input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* .radioInput input:checked + .radioControl {
+  background: radial-gradient(var(--blue) 50%, rgba(255, 0, 0, 0) 51%);
+} */
+
+.radioControl {
+  display: grid;
+  place-items: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 0.1em solid #525252;
+  transform: translateY(-0.05em);
+  box-shadow: 1px 1px 2px black;
+  opacity: 0.55;
+}
+
+input + .radioControl::before {
+  content: '';
+  width: 0.5em;
+  height: 0.5em;
+  box-shadow: inset 0.5em 0.5em var(--blue);
+  border-radius: 50%;
+  transition: 180ms transform ease-in-out;
+  transform: scale(0);
+}
+
+input:checked + .radioControl {
+  animation: radioControl 250ms ease-in-out 0s 1 forwards;
+}
+
+input:checked + .radioControl::before {
+  animation: radiocheck 250ms ease-in-out 0s 1 forwards;
+}
+
+.radioInput input:focus + .radioControl {
+  box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em #303030;
+}
+
+.radio:focus-within .radioLabel {
+  transform: scale(1.06);
+  opacity: 1;
+  color: var(--blue);
+}
+
+.radio:focus-within .radioControl {
+  border: 0.12em solid var(--blue);
+  opacity: 1;
+}
+
+.radioLabel {
+  line-height: 1;
+  opacity: 0.55;
+}
+
+@keyframes radiocheck {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes radioControl {
+  0% {
+    box-shadow: 1px 1px 2px black;
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--blue);
+  }
+
+  100% {
+    box-shadow: 1px 1px 2px black;
+  }
+}
+
+@media (max-width: 650px) {
+  .radio {
+    font-size: 2.08rem;
+
+    display: grid;
+
+    grid-template-columns: minmax(130px, 1fr);
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 3px 5px;
+    transform: scale(0.55);
+    align-items: center;
+  }
+}
+
+@media (max-width: 980px) {
+  .radio {
+    font-size: 2.15rem;
+
+    display: grid;
+
+    grid-template-columns: minmax(160px, 1fr);
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 3px 5px;
+    transform: scale(0.55);
+    align-items: center;
+  }
+}
