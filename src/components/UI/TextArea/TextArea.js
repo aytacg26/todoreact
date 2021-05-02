@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import classes from './TextArea.module.css';
 import React from 'react';
 
-const TextArea = ({
-  maxLength,
-  showCounter,
-  counterText,
-  placeHolder,
-  onChange,
-}) => {
+const TextArea = (
+  { maxLength, name, showCounter, counterText, placeHolder, onChange, value },
+  ref
+) => {
   const [textCount, setTextCount] = useState(0);
   const [counterSize, setCounterSize] = useState(maxLength);
+  const [userInput, setUserInput] = useState('');
+
+  useEffect(() => {
+    if (value.length === 0) {
+      setTextCount(0);
+      setCounterSize(maxLength);
+      setUserInput('');
+    }
+  }, [value, maxLength]);
 
   const counterArea = (
     <div className={classes.countCharsArea}>
@@ -24,8 +30,8 @@ const TextArea = ({
   );
 
   const getText = (e) => {
-    const userInput = e.target.textContent;
     const counter = counterSize;
+    setUserInput(e.target.textContent);
 
     if (e.which === 8) {
       const textSize = textCount;
@@ -91,8 +97,10 @@ const TextArea = ({
           role='textbox'
           contentEditable
           spellCheck='false'
+          name={name}
           onKeyDown={handleText}
           onKeyUp={getText}
+          ref={ref}
         ></span>
         {!textCount && placeHolderArea}
         {showCounter && counterArea}
@@ -101,4 +109,4 @@ const TextArea = ({
   );
 };
 
-export default TextArea;
+export default forwardRef(TextArea);
