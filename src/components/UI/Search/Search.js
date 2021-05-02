@@ -11,6 +11,7 @@ const Search = ({ onChange, value }) => {
         name='search'
         onChange={onChange}
         value={value}
+        autoComplete='off'
       />
     </div>
   );
