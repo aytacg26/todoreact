@@ -1,0 +1,117 @@
+.Checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  position: relative;
+  margin: 0 10px;
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgb(2, 45, 68);
+  border-radius: 50%;
+  margin: 0 4px 0 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.check.checked {
+  animation: outter 0.55s ease-in 0s 1 forwards;
+}
+
+.text {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mark {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  left: 3px;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.mark.green {
+  background-color: var(--green);
+}
+
+.mark.yellow {
+  background-color: var(--yellow);
+}
+
+.mark.red {
+  background-color: var(--red);
+}
+
+.mark.blue {
+  background-color: var(--blue);
+}
+
+.mark.orange {
+  background-color: var(--orange);
+}
+
+.markcenter {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  left: 9.2px;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.mark.checked,
+.markcenter.checked {
+  animation: mark 0.4s ease-in 0s 1 forwards;
+}
+
+.Checkbox input[type='checkbox'] {
+  display: none;
+}
+
+@keyframes mark {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    border-radius: 3px;
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(2) rotate(7200deg);
+    border-radius: 10%;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(3600deg);
+    border-radius: 50%;
+  }
+}
+
+@keyframes outter {
+  0% {
+    box-shadow: 0 0 0 rgb(0, 110, 255);
+    border: 2px solid rgb(0, 153, 241);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgb(0, 238, 255);
+    border: 2px solid rgb(0, 238, 255);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgb(0, 110, 255);
+    border: 2px solid rgb(0, 153, 241);
+  }
+}
