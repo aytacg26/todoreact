@@ -40,4 +40,4 @@ Button.defaultProps = {
   color: 'blue',
 };
 
-export default Button;
+export default React.memo(Button);

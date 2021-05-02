@@ -34,11 +34,12 @@
   transition-property: opacity;
   box-shadow: 0 2px 3px rgb(90, 90, 90);
   border: 1px solid rgba(255, 255, 255, 0.5);
+  font-weight: 600;
 }
 
 .btn.green {
   background-color: var(--green);
-  color: #fff;
+  color: #25344a;
 }
 
 .btn.blue {
