@@ -6,7 +6,7 @@
 
 .slideEffect {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.281);
+  background-color: rgba(255, 255, 255, 0.35);
   height: 50px;
   z-index: 5;
   width: 40px;
@@ -17,7 +17,7 @@
 }
 
 .slideEffect.active {
-  animation: slideEffect 0.3s ease-in 0s 1 forwards;
+  animation: slideEffect 0.25s ease-in 0s 1 forwards;
 }
 
 .btn {

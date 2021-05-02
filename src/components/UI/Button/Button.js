@@ -6,6 +6,9 @@ const Button = (props) => {
   const { color } = props;
 
   const handleClick = () => {
+    if (props.onClick) {
+      props.onClick();
+    }
     setActive(true);
     const timer = setTimeout(() => {
       setActive(false);
