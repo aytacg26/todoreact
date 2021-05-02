@@ -6,4 +6,17 @@
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
+  overflow-x: hidden;
+  scrollbar-width: 3px;
+}
+
+.container::-webkit-scrollbar {
+  width: 3px;
+}
+
+@media (max-width: 1080px) {
+  .container {
+    width: 100vw;
+    padding: 0 5px;
+  }
 }
