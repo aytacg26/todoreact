@@ -1,0 +1,30 @@
+.DateCard {
+  width: 95px;
+  height: 95px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  background-color: var(--blue);
+  box-shadow: 2px 2px 4px black;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.Day,
+.Month,
+.Year {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 4px black;
+}
+
+.Day,
+.Month {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.Year {
+  font-size: 15px;
+  font-weight: 600;
+}
