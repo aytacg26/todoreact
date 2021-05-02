@@ -1,9 +1,10 @@
 .Search {
-  width: 100%;
+  width: 67%;
   max-width: 100vw;
-  height: 30px;
+  height: 35px;
   border: 1px solid yellowgreen;
   margin: 10px;
+  border-radius: 9px;
 }
 
 .Search input {
@@ -13,6 +14,7 @@
   padding: 0 15px;
   font-size: 14px;
   outline: 0 none;
+  background-color: transparent;
 }
 
 .Search:focus-within {
