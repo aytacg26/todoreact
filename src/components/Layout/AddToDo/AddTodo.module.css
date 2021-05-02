@@ -1,19 +1,31 @@
 .AddTodo {
   max-width: 100%;
+  width: 100%;
   height: max-content;
-  background-color: rgb(245, 245, 245);
+  background-color: var(--greyBack);
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-evenly;
+
   box-shadow: 2px 2px 5px black;
   border: 1px solid #fff;
   padding: 10px 30px;
   border-radius: 0 0 6px 6px;
 }
+.InputArea {
+  display: flex;
+  width: 100%;
+}
 
 .Actions {
   display: flex;
+}
+
+@media (max-width: 350px) {
+  .Actions {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 }
 
 @media (max-width: 650px) {
