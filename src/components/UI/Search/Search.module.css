@@ -1,9 +1,9 @@
 .Search {
-  width: 67%;
+  width: 100%;
   max-width: 100vw;
-  height: 35px;
+  min-height: 40px;
   border: 1px solid yellowgreen;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 9px;
 }
 
