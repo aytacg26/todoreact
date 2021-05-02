@@ -11,7 +11,7 @@ const TextArea = (
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    if (value.length === 0) {
+    if (value?.length === 0) {
       setTextCount(0);
       setCounterSize(maxLength);
       setUserInput('');
