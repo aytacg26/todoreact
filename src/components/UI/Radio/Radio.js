@@ -7,8 +7,8 @@ const Radio = (props) => {
       <span className={classes.radioInput}>
         <input type='radio' {...props} id={props.id} />
         <span className={classes.radioControl}></span>
+        <span className={classes.radioLabel}>{props.label}</span>
       </span>
-      <span className={classes.radioLabel}>{props.label}</span>
     </label>
   );
 };

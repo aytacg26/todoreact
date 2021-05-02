@@ -46,7 +46,15 @@ input + .radioControl::before {
 }
 
 input:checked + .radioControl {
+  border: 0.12em solid var(--blue);
+  opacity: 1;
   animation: radioControl 250ms ease-in-out 0s 1 forwards;
+}
+
+input:checked ~ .radioLabel {
+  transform: scale(1.06);
+  opacity: 1;
+  color: var(--blue);
 }
 
 input:checked + .radioControl::before {
@@ -71,6 +79,7 @@ input:checked + .radioControl::before {
 .radioLabel {
   line-height: 1;
   opacity: 0.55;
+  margin-left: 10px;
 }
 
 @keyframes radiocheck {
