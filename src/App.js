@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import AddToDo from './components/Layout/AddToDo/AddToDo';
+import Input from './components/UI/Input/Input';
+import Search from './components/UI/Search/Search';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <AddToDo />
+      <Search />
+      <Input type='text' name='addTodo' placeholder='Add New Todo' />
     </div>
   );
 }
