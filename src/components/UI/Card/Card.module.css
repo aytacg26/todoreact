@@ -1,11 +1,38 @@
 .Card {
   max-width: 100%;
   width: 100%;
-  margin: 10px auto;
-  padding: 25px 15px;
+  margin: 13px auto 13px auto;
+  padding: 20px 15px;
   background-color: var(--greyBack);
   box-shadow: 1px 1px 3px black;
   border-radius: 8px;
+  display: flex;
+  overflow-x: hidden;
+  scrollbar-width: 3px;
+  overflow-y: scroll;
+}
+
+.Card::-webkit-scrollbar {
+  width: 3px;
+}
+
+.Card.Row {
+  flex-flow: row nowrap;
+}
+
+.Card.Column {
+  flex-flow: column nowrap;
+}
+
+.Card.Center {
+  align-items: center;
+}
+
+.Card ul {
+  display: flex;
+  flex-flow: column;
+  max-width: 100%;
+  width: 100%;
 }
 
 .Card li {
