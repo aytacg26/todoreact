@@ -6,6 +6,15 @@ import Search from './components/UI/Search/Search';
 
 const DUMMY_TODO = [
   {
+    id: 'todo-42031',
+    title: 'Add Search Todo functionality',
+    description:
+      'For todo react app, a search functionality will be added and user will be able to search or filter todos according to date, title or contents',
+    dateAdded: '2021-05-04',
+    target: 'Make full functional search',
+    isCompleted: false,
+  },
+  {
     id: 'todo-12123',
     title: 'Learn React',
     description: 'I will try to learn react within 10 months',
