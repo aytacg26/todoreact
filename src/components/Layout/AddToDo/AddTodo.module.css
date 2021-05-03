@@ -24,7 +24,13 @@
 @media (max-width: 350px) {
   .Actions {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .InputArea {
+    flex-flow: column;
   }
 }
 

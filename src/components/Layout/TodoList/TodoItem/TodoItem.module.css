@@ -22,6 +22,9 @@
   flex: 2;
   padding: 5px 8px;
   width: max-content;
+  font-weight: 600;
+  text-align: left;
+  font-size: 20px;
 }
 
 .Actions {
@@ -135,6 +138,15 @@
   .Actions {
     border-top: 1px solid #ccc;
     border-left: 0 none;
+  }
+
+  .Target {
+    flex-flow: column nowrap;
+    font-size: 14px;
+  }
+
+  .Status {
+    margin-left: 0;
   }
 
   .title {

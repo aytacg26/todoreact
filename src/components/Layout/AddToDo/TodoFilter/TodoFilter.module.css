@@ -9,7 +9,9 @@
 
 @media (max-width: 650px) {
   .FilterToDo {
-    flex-flow: column;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
   }
 }
 

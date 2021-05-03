@@ -118,11 +118,11 @@ input:checked + .radioControl::before {
 
     grid-template-columns: minmax(130px, 1fr);
     grid-template-rows: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
+    justify-content: flex-start;
     margin: 3px 5px;
     transform: scale(0.55);
     align-items: center;
+    width: 100%;
   }
 }
 
@@ -133,11 +133,10 @@ input:checked + .radioControl::before {
     display: grid;
 
     grid-template-columns: minmax(160px, 1fr);
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
+    grid-template-rows: 1fr;
+
     margin: 3px 5px;
     transform: scale(0.55);
-    align-items: center;
+    min-width: max-content;
   }
 }
