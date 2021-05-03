@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Button.module.css';
 
 const Button = (props) => {
@@ -10,11 +10,21 @@ const Button = (props) => {
       props.onClick();
     }
     setActive(true);
-    const timer = setTimeout(() => {
-      setActive(false);
-      clearTimeout(timer);
-    }, 300);
   };
+
+  useEffect(() => {
+    let timer;
+
+    if (isActive) {
+      timer = setTimeout(() => {
+        setActive(false);
+      }, 300);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isActive]);
 
   return (
     <div className={classes.btnContainer}>
