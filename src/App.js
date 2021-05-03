@@ -56,6 +56,24 @@ const App = () => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
   };
 
+  const handleTodoFilter = (e) => {
+    const filterType = e.target.value;
+
+    switch (filterType) {
+      case 'completed':
+        setTodos(DUMMY_TODO.filter((todo) => todo.isCompleted));
+        break;
+
+      case 'incomplete':
+        setTodos(DUMMY_TODO.filter((todo) => !todo.isCompleted));
+        break;
+
+      default:
+        setTodos(DUMMY_TODO);
+        break;
+    }
+  };
+
   return (
     <div className='container'>
       {showFilter && <Search placeholder='Search ToDo' />}
@@ -63,6 +81,7 @@ const App = () => {
         toggleFilter={toggleFilter}
         showFilter={showFilter}
         addToList={addNewToDo}
+        onTodoFilter={handleTodoFilter}
       />
       <TodoList
         todos={todos}

@@ -5,7 +5,7 @@ import classes from './AddTodo.module.css';
 import TodoFilter from './TodoFilter/TodoFilter';
 import TextArea from '../../UI/TextArea/TextArea';
 
-const AddToDo = ({ toggleFilter, showFilter, addToList }) => {
+const AddToDo = ({ toggleFilter, showFilter, addToList, onTodoFilter }) => {
   const [inputValue, setInputValue] = useState({ title: '', target: '' });
   const [description, setDescription] = useState('');
   const textAreaRef = useRef();
@@ -86,7 +86,7 @@ const AddToDo = ({ toggleFilter, showFilter, addToList }) => {
         </Button>
       </div>
 
-      {showFilter && <TodoFilter />}
+      {showFilter && <TodoFilter onFilter={onTodoFilter} />}
     </form>
   );
 };
