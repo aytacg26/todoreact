@@ -43,6 +43,19 @@ const App = () => {
     setTodos((prevState) => [newTodo, ...prevState]);
   };
 
+  const handleComplete = (todoId) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === todoId
+          ? { ...todo, isCompleted: todo.isCompleted ? false : true }
+          : todo
+      )
+    );
+  };
+  const handleDelete = (todoId) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
+  };
+
   return (
     <div className='container'>
       {showFilter && <Search placeholder='Search ToDo' />}
@@ -51,7 +64,11 @@ const App = () => {
         showFilter={showFilter}
         addToList={addNewToDo}
       />
-      <TodoList todos={todos} />
+      <TodoList
+        todos={todos}
+        onComplete={handleComplete}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
