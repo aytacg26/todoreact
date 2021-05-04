@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Search.module.css';
 
-const Search = ({ onChange, value, placeholder }) => {
+const Search = ({ onChange, onSearch, value, placeholder }) => {
   return (
-    <div className={classes.Search}>
+    <form className={classes.Search} onSubmit={onSearch}>
       <input
         type='search'
         placeholder={placeholder}
@@ -13,7 +13,7 @@ const Search = ({ onChange, value, placeholder }) => {
         value={value}
         autoComplete='off'
       />
-    </div>
+    </form>
   );
 };
 
