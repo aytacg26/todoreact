@@ -47,7 +47,7 @@ For Auto Expanding TextArea check : (I just try to present AutoExpanding TextAre
     ````
     combineReducers() function takes an object argument and each key will take our reducer as value.
 
-### D- Wrap App with <Provider store={store}></Provider>
+### D- Wrap App with `<Provider store={store}></Provider>`
 
     * import Provider from “react-redux”;
     * import appStore from from “./store”;
