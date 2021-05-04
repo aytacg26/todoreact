@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../Input/Input';
 import classes from './Checkbox.module.css';
+import PropTypes from 'prop-types';
 
 const CheckBox = ({ id, onChange, value, color, label, name }) => {
   const [show, setShow] = useState(false);
@@ -52,6 +53,15 @@ const CheckBox = ({ id, onChange, value, color, label, name }) => {
 
 CheckBox.defaultProps = {
   color: 'blue',
+};
+
+CheckBox.propTypes = {
+  id: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.any,
+  color: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default CheckBox;

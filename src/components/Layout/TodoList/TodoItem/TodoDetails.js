@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import classes from './TodoItem.module.css';
+import PropTypes from 'prop-types';
 
 const TodoDetails = ({ target, description, completed }) => {
   return (
@@ -24,6 +25,12 @@ const TodoDetails = ({ target, description, completed }) => {
       </div>
     </Fragment>
   );
+};
+
+TodoDetails.propTypes = {
+  target: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
 };
 
 export default TodoDetails;

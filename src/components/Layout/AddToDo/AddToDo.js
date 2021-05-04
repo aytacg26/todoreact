@@ -7,6 +7,7 @@ import TextArea from '../../UI/TextArea/TextArea';
 import { addTodo } from '../../../store/Actions/todoActions/todoActions';
 import { setAlert } from '../../../store/Actions/ModalActions/modalActions';
 import Loader from '../../UI/Loader/Loader';
+import PropTypes from 'prop-types';
 
 const TodoFilter = lazy(() => import('./TodoFilter/TodoFilter'));
 
@@ -142,6 +143,11 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
       )}
     </form>
   );
+};
+
+AddToDo.propTypes = {
+  toggleFilter: PropTypes.func.isRequired,
+  showFilter: PropTypes.bool.isRequired,
 };
 
 export default AddToDo;

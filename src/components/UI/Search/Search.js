@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Search.module.css';
+import PropTypes from 'prop-types';
 
 const Search = ({ onChange, onSearch, value, placeholder }) => {
   return (
@@ -15,6 +16,17 @@ const Search = ({ onChange, onSearch, value, placeholder }) => {
       />
     </form>
   );
+};
+
+Search.defaultProps = {
+  placeholder: 'Search...',
+};
+
+Search.propTypes = {
+  onChange: PropTypes.func,
+  onSearch: PropTypes.func,
+  value: PropTypes.any,
+  placeholder: PropTypes.string,
 };
 
 export default Search;

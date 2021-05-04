@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import useValidate from './hook/inputCustomHook';
 import classes from './Input.module.css';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Input = (props) => {
   const inputEl = useRef();
@@ -26,6 +27,10 @@ const Input = (props) => {
       <input {...inElProps} ref={inputEl} />
     </div>
   );
+};
+
+Input.propTypes = {
+  isrequired: PropTypes.bool,
 };
 
 export default Input;

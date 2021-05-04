@@ -9,6 +9,7 @@ import {
   setStatus,
 } from '../../../../store/Actions/todoActions/todoActions';
 import Loader from '../../../UI/Loader/Loader';
+import PropTypes from 'prop-types';
 
 const TodoDetails = lazy(() => import('./TodoDetails'));
 
@@ -62,6 +63,15 @@ const TodoItem = ({ id, title, completed, date, target, description }) => {
       </Card>
     </li>
   );
+};
+
+TodoItem.propTypes = {
+  id: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+  date: PropTypes.string.isRequired,
+  target: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default TodoItem;

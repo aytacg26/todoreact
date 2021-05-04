@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './DateCard.module.css';
+import PropTypes from 'prop-types';
 
 const DateCard = ({ date }) => {
   const dateForm = new Date(date);
@@ -17,6 +18,10 @@ const DateCard = ({ date }) => {
       <span className={classes.Year}>{year}</span>
     </div>
   );
+};
+
+DateCard.propTypes = {
+  date: PropTypes.string.isRequired,
 };
 
 export default React.memo(DateCard);

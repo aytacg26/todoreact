@@ -2,6 +2,7 @@ import { useState, forwardRef, useEffect } from 'react';
 import classes from './TextArea.module.css';
 import React from 'react';
 
+//requires more improvement...
 const TextArea = (
   { maxLength, name, showCounter, counterText, placeHolder, onChange, value },
   ref
