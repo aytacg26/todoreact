@@ -42,6 +42,7 @@ const DUMMY_TODO = [
 
 const App = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const [search, setSearch] = useState('');
   const [todos, setTodos] = useState(DUMMY_TODO);
 
   const toggleFilter = () => {
@@ -83,9 +84,31 @@ const App = () => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    const entered = e.target.value;
+
+    setSearch(entered);
+
+    const filteredTodos = DUMMY_TODO.filter(
+      (todo) =>
+        todo.title.includes(entered) ||
+        todo.description.includes(entered) ||
+        todo.target.includes(entered) ||
+        todo.dateAdded.includes(entered)
+    );
+
+    setTodos(filteredTodos);
+  };
+
   return (
     <div className='container'>
-      {showFilter && <Search placeholder='Search ToDo' />}
+      {showFilter && (
+        <Search
+          placeholder='Search ToDo'
+          onChange={handleSearchChange}
+          value={search}
+        />
+      )}
       <AddToDo
         toggleFilter={toggleFilter}
         showFilter={showFilter}
