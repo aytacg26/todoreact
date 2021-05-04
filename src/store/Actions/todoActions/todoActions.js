@@ -20,18 +20,22 @@ export const deleteTodo = (todoId) => {
   };
 };
 
-export const setStatus = (todoId) => {
-  return {
-    type: SET_STATUS,
-    payload: todoId,
-  };
-};
-
 export const filterTodo = (value) => {
   return {
     type: FILTER_TODO,
     payload: value,
   };
+};
+export const setStatus = (todoId) => (dispatch, getState) => {
+  const state = getState();
+  const { currentFilter } = state.todo;
+
+  dispatch({
+    type: SET_STATUS,
+    payload: todoId,
+  });
+
+  dispatch(filterTodo(currentFilter));
 };
 
 export const searchTodo = (text) => {

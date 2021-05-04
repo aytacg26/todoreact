@@ -47,6 +47,7 @@ const initState = {
   allTodos: DUMMY_TODO,
   showFilter: false,
   search: '',
+  currentFilter: 'all',
 };
 
 const todoReducer = (state = initState, action) => {
@@ -102,6 +103,7 @@ const todoReducer = (state = initState, action) => {
       return {
         ...state,
         todos: filteredTodos,
+        currentFilter: payload,
       };
 
     case SEARCH_TODO:
