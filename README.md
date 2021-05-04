@@ -53,9 +53,15 @@ For Auto Expanding TextArea check : (I just try to present AutoExpanding TextAre
     * import appStore from from “./store”;
 
     ````
-    <Provider store={appStore}>
-    	<App/>
-    </Provider>
+    const App = () => {
+        return (
+            <Provider store={appStore}>
+            <div className='container'>
+                <Todo />
+            </div>
+            </Provider>
+        );
+        };
     ````
 
 ### E- create required reducers inside Reducers folder,
