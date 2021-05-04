@@ -3,21 +3,21 @@ import Button from '../../../UI/Button/Button';
 import Card from '../../../UI/Card/Card';
 import DateCard from '../../../UI/DateCard/DateCard';
 import classes from './TodoItem.module.css';
+import { useDispatch } from 'react-redux';
+import {
+  deleteTodo,
+  setStatus,
+} from '../../../../store/Actions/todoActions/todoActions';
+import TodoDetails from './TodoDetails';
 
-const TodoItem = ({
-  title,
-  completed,
-  date,
-  target,
-  description,
-  onComplete,
-  onDelete,
-}) => {
+const TodoItem = ({ id, title, completed, date, target, description }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   const handleDetails = () => {
     setShowDetails((prevState) => !prevState);
   };
+
+  const dispatch = useDispatch();
 
   return (
     <li>
@@ -35,38 +35,25 @@ const TodoItem = ({
           <div className={classes.Actions}>
             <Button
               color={!completed ? 'green' : 'orange'}
-              onClick={onComplete}
+              onClick={() => dispatch(setStatus(id))}
             >
               {completed ? 'Incompleted' : 'Completed'}
             </Button>
             <Button color='blue' onClick={handleDetails}>
               {!showDetails ? 'Show' : 'Hide'} Details
             </Button>
-            <Button color='red' onClick={onDelete}>
+            <Button color='red' onClick={() => dispatch(deleteTodo(id))}>
               Delete
             </Button>
           </div>
         </div>
 
         {showDetails && (
-          <div className={classes.Details}>
-            <div className={classes.Content}>
-              <div className={classes.Target}>
-                <label className={classes.Label}>Target : </label>
-                <span>{target}</span>
-              </div>
-              <span className={classes.Description}>{description}</span>
-              <div className={classes.Status}>
-                {' '}
-                <label className={classes.Label}>Status :</label>
-                {completed ? (
-                  <div className={classes.completedMark}>&#10003;</div>
-                ) : (
-                  <div className={classes.incompleteMark}>&#10060;</div>
-                )}
-              </div>
-            </div>
-          </div>
+          <TodoDetails
+            target={target}
+            description={description}
+            completed={completed}
+          />
         )}
       </Card>
     </li>
