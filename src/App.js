@@ -8,9 +8,7 @@ import Modal from './components/UI/Modal/Modal';
 /**
  *
  * @TODO :
- *        -- Add Modal, if user does not enter anything to required fields, user should be warned with the help of modal
- *         - Add warning css to Input, for required fields, Input border and background should warn user
- *         - Add lazyloading to AddToDo for filter window, and add lazyloading for details in TodoItem
+ *        -- Some parts of the app are not responsive, they must be corrected
  *
  */
 
