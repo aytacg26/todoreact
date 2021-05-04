@@ -1,11 +1,13 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { lazy, useState, useCallback, useRef, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
 import classes from './AddTodo.module.css';
-import TodoFilter from './TodoFilter/TodoFilter';
 import TextArea from '../../UI/TextArea/TextArea';
 import { addTodo } from '../../../store/Actions/todoActions/todoActions';
+import Loader from '../../UI/Loader/Loader';
+
+const TodoFilter = lazy(() => import('./TodoFilter/TodoFilter'));
 
 const AddToDo = ({ toggleFilter, showFilter }) => {
   const [inputValue, setInputValue] = useState({ title: '', target: '' });
@@ -32,21 +34,27 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Sanitize the data from user (especially description part is important, it comes from contentEditable element and also may contain upto 180 chars)
-    const currentDate = new Date();
+    if (
+      inputValue.title.trim().length !== 0 &&
+      inputValue.target.trim().length !== 0 &&
+      description.trim().length !== 0
+    ) {
+      const currentDate = new Date();
 
-    const newTodo = {
-      id: `todo-${currentDate.getTime()}-${currentDate.getFullYear()}`,
-      title: inputValue.title,
-      description,
-      dateAdded: currentDate.toLocaleDateString(),
-      target: inputValue.target,
-      isCompleted: false,
-    };
+      //Sanitize the data from user (especially description part is important, it comes from contentEditable element and also may contain upto 180 chars)
+      const newTodo = {
+        id: `todo-${currentDate.getTime()}-${currentDate.getFullYear()}`,
+        title: inputValue.title,
+        description,
+        dateAdded: currentDate.toLocaleDateString(),
+        target: inputValue.target,
+        isCompleted: false,
+      };
 
-    dispatch(addTodo(newTodo));
+      dispatch(addTodo(newTodo));
 
-    clearForm();
+      clearForm();
+    }
   };
 
   return (
@@ -58,6 +66,8 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
           value={inputValue.title}
           onChange={handleInputChange}
           name='title'
+          required
+          maxLength={30}
         />
 
         <Input
@@ -66,6 +76,8 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
           value={inputValue.target}
           onChange={handleInputChange}
           name='target'
+          required
+          maxLength={60}
         />
       </div>
       <TextArea
@@ -91,7 +103,11 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
         </Button>
       </div>
 
-      {showFilter && <TodoFilter />}
+      {showFilter && (
+        <Suspense fallback={<Loader />}>
+          <TodoFilter />
+        </Suspense>
+      )}
     </form>
   );
 };
