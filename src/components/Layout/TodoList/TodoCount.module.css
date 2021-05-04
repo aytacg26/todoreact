@@ -1,0 +1,29 @@
+.TodoCount {
+  padding: 18px 35px;
+  box-shadow: 1px 1px 3px black;
+  border-radius: 15px;
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CountLabel {
+  font-weight: 800;
+  margin: 0 15px 0 0;
+  font-size: 20px;
+}
+
+.Count {
+  font-weight: 600;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  box-shadow: 2px 2px 3px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50%;
+}
