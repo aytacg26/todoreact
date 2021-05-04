@@ -59,7 +59,8 @@ const TextArea = (
       key !== 40 &&
       key !== 46 &&
       key !== 13 &&
-      key !== 16
+      key !== 16 &&
+      key !== 9
     ) {
       if (e.which !== 8 && count <= maxLength) {
         count++;
