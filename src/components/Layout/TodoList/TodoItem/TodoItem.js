@@ -57,6 +57,7 @@ const TodoItem = ({ id, title, completed, date, target, description }) => {
               target={target}
               description={description}
               completed={completed}
+              id={id}
             />
           </Suspense>
         )}

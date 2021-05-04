@@ -1,8 +1,12 @@
 import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
+import { setStatus } from '../../../../store/Actions/todoActions/todoActions';
 import classes from './TodoItem.module.css';
 import PropTypes from 'prop-types';
 
-const TodoDetails = ({ target, description, completed }) => {
+const TodoDetails = ({ id, target, description, completed }) => {
+  const dispatch = useDispatch();
+
   return (
     <Fragment>
       <div className={classes.Details}>
@@ -12,8 +16,10 @@ const TodoDetails = ({ target, description, completed }) => {
             <span>{target}</span>
           </div>
           <span className={classes.Description}>{description}</span>
-          <div className={classes.Status}>
-            {' '}
+          <div
+            className={classes.Status}
+            onClick={() => dispatch(setStatus(id))}
+          >
             <label className={classes.Label}>Status :</label>
             {completed ? (
               <div className={classes.completedMark}>&#10003;</div>
