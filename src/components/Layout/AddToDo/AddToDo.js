@@ -1,14 +1,18 @@
 import React, { useState, useCallback, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
 import classes from './AddTodo.module.css';
 import TodoFilter from './TodoFilter/TodoFilter';
 import TextArea from '../../UI/TextArea/TextArea';
+import { addTodo } from '../../../store/Actions/todoActions/todoActions';
 
-const AddToDo = ({ toggleFilter, showFilter, addToList, onTodoFilter }) => {
+const AddToDo = ({ toggleFilter, showFilter }) => {
   const [inputValue, setInputValue] = useState({ title: '', target: '' });
   const [description, setDescription] = useState('');
   const textAreaRef = useRef();
+
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +32,7 @@ const AddToDo = ({ toggleFilter, showFilter, addToList, onTodoFilter }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //Sanitize the data from user (especially description part is important, it comes from contentEditable element and also may contain upto 180 chars)
     const currentDate = new Date();
 
     const newTodo = {
@@ -39,7 +44,7 @@ const AddToDo = ({ toggleFilter, showFilter, addToList, onTodoFilter }) => {
       isCompleted: false,
     };
 
-    addToList(newTodo);
+    dispatch(addTodo(newTodo));
 
     clearForm();
   };
@@ -86,7 +91,7 @@ const AddToDo = ({ toggleFilter, showFilter, addToList, onTodoFilter }) => {
         </Button>
       </div>
 
-      {showFilter && <TodoFilter onFilter={onTodoFilter} />}
+      {showFilter && <TodoFilter />}
     </form>
   );
 };
