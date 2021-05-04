@@ -1,0 +1,32 @@
+.Backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background: linear-gradient(
+    to left top,
+    rgba(92, 63, 0, 0.25) 10%,
+    rgba(0, 0, 0, 0.6) 55%
+  );
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  z-index: -10;
+}
+
+.Backdrop.Show {
+  animation: backdrop 0.4s ease-in-out 1 forwards;
+}
+
+@keyframes backdrop {
+  0% {
+    opacity: 0;
+    z-index: -10;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 10;
+  }
+}
