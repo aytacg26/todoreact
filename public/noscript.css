@@ -25,9 +25,9 @@
 
 .no-script img {
   margin-bottom: 15px;
-  box-shadow: 1px 1px 5px black;
+
   border-radius: 100%;
-  border: 3px solid #000;
+
   animation: rotate 6s linear 0s infinite;
 }
 
