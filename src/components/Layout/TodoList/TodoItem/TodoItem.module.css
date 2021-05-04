@@ -64,6 +64,7 @@
   font-weight: 700;
   font-size: 18px;
   color: var(--blue);
+  cursor: pointer;
 }
 
 .Target .Label {
