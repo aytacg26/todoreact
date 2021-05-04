@@ -17,6 +17,12 @@
   outline: 0 none !important;
 }
 
+.Input.Required {
+  border: 1px solid rgb(235, 105, 105);
+  background-color: rgb(252, 195, 189);
+  box-shadow: 0 0 10px rgb(235, 105, 105);
+}
+
 .Input:focus-within {
   box-shadow: 0 0 4px var(--green);
   border: 1px solid var(--green);
