@@ -97,7 +97,8 @@ we may create seperate folder for each reducer or a file for each reducer. For t
 ### Create Actions for the reducer in Actions Folder, actions file of target reducer
 
 Ex : Actions for todoReducer inside Actions folder, todoActions file :
-types constants should be imported to use in actions.
+types constants should be imported to use in actions. In actions for async functions (ex: fetching data from backend), redux-thunk
+will be required. (npm i redux-thunk)
 
     ````
             export const addTodo = (newTodo) => {
