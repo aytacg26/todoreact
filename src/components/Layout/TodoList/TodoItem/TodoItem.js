@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import Button from '../../../UI/Button/Button';
 import Card from '../../../UI/Card/Card';
 import DateCard from '../../../UI/DateCard/DateCard';
@@ -8,7 +8,9 @@ import {
   deleteTodo,
   setStatus,
 } from '../../../../store/Actions/todoActions/todoActions';
-import TodoDetails from './TodoDetails';
+import Loader from '../../../UI/Loader/Loader';
+
+const TodoDetails = lazy(() => import('./TodoDetails'));
 
 const TodoItem = ({ id, title, completed, date, target, description }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -49,11 +51,13 @@ const TodoItem = ({ id, title, completed, date, target, description }) => {
         </div>
 
         {showDetails && (
-          <TodoDetails
-            target={target}
-            description={description}
-            completed={completed}
-          />
+          <Suspense fallback={<Loader />}>
+            <TodoDetails
+              target={target}
+              description={description}
+              completed={completed}
+            />
+          </Suspense>
         )}
       </Card>
     </li>
