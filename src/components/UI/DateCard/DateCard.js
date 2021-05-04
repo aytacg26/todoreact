@@ -19,4 +19,4 @@ const DateCard = ({ date }) => {
   );
 };
 
-export default DateCard;
+export default React.memo(DateCard);
