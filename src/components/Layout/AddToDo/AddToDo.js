@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 import classes from './AddTodo.module.css';
 import TextArea from '../../UI/TextArea/TextArea';
 import { addTodo } from '../../../store/Actions/todoActions/todoActions';
+import { setAlert } from '../../../store/Actions/ModalActions/modalActions';
 import Loader from '../../UI/Loader/Loader';
 
 const TodoFilter = lazy(() => import('./TodoFilter/TodoFilter'));
@@ -54,6 +55,37 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
       dispatch(addTodo(newTodo));
 
       clearForm();
+    } else {
+      if (
+        inputValue.title.trim().length === 0 &&
+        inputValue.target.trim().length === 0 &&
+        description.trim().length === 0
+      ) {
+        dispatch(
+          setAlert(
+            'Empty Form',
+            'Title, Target and Description for TODO is required. Please enter title for subject, target for todo and description of todo.'
+          )
+        );
+      } else if (inputValue.title.trim().length === 0) {
+        dispatch(
+          setAlert(
+            'No Subject',
+            'For todo subject, please enter the title. It is required.'
+          )
+        );
+      } else if (inputValue.target.trim().length === 0) {
+        dispatch(
+          setAlert('No Target', 'Please enter your target for this TODO')
+        );
+      } else if (description.trim().length === 0) {
+        dispatch(
+          setAlert(
+            'No Description',
+            'Please describe this todo, write something about it. What it is about, why you must do it etc.'
+          )
+        );
+      }
     }
   };
 
@@ -66,7 +98,7 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
           value={inputValue.title}
           onChange={handleInputChange}
           name='title'
-          required
+          isrequired
           maxLength={30}
         />
 
@@ -76,7 +108,7 @@ const AddToDo = ({ toggleFilter, showFilter }) => {
           value={inputValue.target}
           onChange={handleInputChange}
           name='target'
-          required
+          isrequired
           maxLength={60}
         />
       </div>
