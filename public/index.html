@@ -13,11 +13,25 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="./noscript.css" />
 
     <title>React TODO App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div class="no-script">
+        <img
+          src="logo192.png"
+          alt="react logo"
+          title="react logo"
+          width="140"
+          height="140"
+        />
+        <span>You need to enable</span>
+        <span class="javascript"><strong>JavaScript</strong></span>
+        <span>to run this app</span>
+      </div></noscript
+    >
     <div id="modal-root"></div>
     <div id="root"></div>
   </body>
