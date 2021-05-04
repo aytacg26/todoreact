@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useCallback } from 'react';
 import Button from '../../../UI/Button/Button';
 import Card from '../../../UI/Card/Card';
 import DateCard from '../../../UI/DateCard/DateCard';
@@ -15,9 +15,9 @@ const TodoDetails = lazy(() => import('./TodoDetails'));
 const TodoItem = ({ id, title, completed, date, target, description }) => {
   const [showDetails, setShowDetails] = useState(false);
 
-  const handleDetails = () => {
+  const handleDetails = useCallback(() => {
     setShowDetails((prevState) => !prevState);
-  };
+  }, []);
 
   const dispatch = useDispatch();
 
