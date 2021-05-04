@@ -1,8 +1,13 @@
 import React from 'react';
 import Card from '../../UI/Card/Card';
 import TodoItem from './TodoItem/TodoItem';
+import { useSelector } from 'react-redux';
 
-const TodoList = ({ todos, onComplete, onDelete }) => {
+const TodoList = () => {
+  const { todos } = useSelector((state) => ({
+    todos: state.todo.todos,
+  }));
+
   return (
     <Card>
       <ul>
@@ -10,12 +15,11 @@ const TodoList = ({ todos, onComplete, onDelete }) => {
           <TodoItem
             title={todo.title}
             key={todo.id}
+            id={todo.id}
             completed={todo.isCompleted}
             date={todo.dateAdded}
             target={todo.target}
             description={todo.description}
-            onComplete={() => onComplete(todo.id)}
-            onDelete={() => onDelete(todo.id)}
           />
         ))}
       </ul>
