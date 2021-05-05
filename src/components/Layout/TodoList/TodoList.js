@@ -16,7 +16,9 @@ const TodoList = () => {
         <ul>
           <li
             style={{ textAlign: 'center', fontSize: 24, fontWeight: 600 }}
-          >{`No ${currentFilter} todo exists.`}</li>
+          >{`No ${
+            currentFilter !== 'all' ? currentFilter : ''
+          } todo exists.`}</li>
         </ul>
       </Card>
     );
